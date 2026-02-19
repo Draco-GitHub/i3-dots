@@ -1,0 +1,18 @@
+include ~/.config/i3/keybinds.conf
+
+set $mod Mod4
+font pango:JetBrainsMono Nerd Font 8
+
+gaps inner 15
+
+exec --no-startup-id dex --autostart --environment i3
+exec --no-startup-id xss-lock --transfer-sleep-lock -- ~/.config/i3/scripts/lock.sh
+exec --no-startup-id nm-applet
+
+set $refresh_i3status killall -SIGUSR1 i3status
+floating_modifier $mod
+tiling_drag modifier titlebar
+
+exec_always feh --bg-scale /home/draco/.config/i3/.img/wallpaper.jpg
+exec --no-startup-id polybar main
+exec_always picom --config ~/.config/picom/picom.conf
